@@ -49,7 +49,7 @@ const App = (props: IProps) => {
     generateCharts(urlArray);
   };
 
-  console.log(data);
+  let title = url.replace(/(\n)/gi, '').split(',');
 
   return (
     <div className="App">
@@ -127,7 +127,9 @@ const App = (props: IProps) => {
 
           {!loading &&
             data.length > 0 &&
-            data.map((item, index) => <Graph item={item} key={index} />)}
+            data.map((item, index) => (
+              <Graph item={item} key={index} title={title[index]} />
+            ))}
         </div>
       </div>
     </div>

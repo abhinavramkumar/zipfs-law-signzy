@@ -1,0 +1,125 @@
+html,
+body {
+  line-height: 1.618;
+}
+
+.App {
+  min-height: 100vh;
+  background: #f1f1f1;
+}
+
+.container {
+  margin: 0 auto;
+  width: calc(100% - 4rem);
+  height: 100%;
+}
+
+.App__Wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 3rem 1rem;
+}
+
+.App__Error-Wrapper {
+  z-index: 11;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  max-width: 960px;
+  margin: 0 auto;
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 1rem;
+  box-shadow: 0 2px 2px rgba(#000, 0.125);
+  p {
+    width: 60%;
+    margin: 0;
+  }
+  button {
+    background: #ca2f2d;
+    border-radius: 6px;
+    border: 1px solid #ca2f2d;
+    color: white;
+    display: block;
+    height: 36px;
+    line-height: 36px;
+    margin: 0;
+    padding: 0 1rem;
+    text-transform: uppercase;
+    width: 120px;
+  }
+}
+
+.App__Header-Wrapper {
+  text-align: center;
+  margin: 0 auto 3rem;
+  max-width: 70%;
+  min-width: 320px;
+}
+
+.App__Loading-Wrapper {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(#000, 0.8);
+  background-blend-mode: overlay;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.App__Form-Wrapper {
+  width: 640px;
+  margin: 0 auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 0 0 2rem;
+}
+
+label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+button {
+  border: 1px solid #ca2f2d;
+  background: #ca2f2d;
+  color: white;
+  min-width: 88px;
+  padding: 0 1rem;
+  height: 36px;
+  text-transform: uppercase;
+  border-radius: 6px;
+  align-self: flex-end;
+}
+
+textarea {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  line-height: 1.618;
+  width: 100%;
+  resize: vertical;
+  min-height: 150px;
+}
+
+.App__LineChart-Wrapper {
+  overflow-x: auto;
+  margin: 0 0 2rem;
+}

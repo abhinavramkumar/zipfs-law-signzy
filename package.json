@@ -7,24 +7,41 @@
     "@types/node": "11.11.0",
     "@types/react": "16.8.7",
     "@types/react-dom": "16.8.2",
+    "@types/recharts": "^1.1.14",
+    "body-parser": "^1.18.3",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.4",
+    "lodash": "^4.17.11",
+    "morgan": "^1.9.1",
+    "node-sass": "^4.11.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-scripts": "2.1.8",
+    "recharts": "^1.5.0",
+    "sanitize.css": "^8.0.0",
+    "superagent": "^4.1.0",
     "typescript": "3.3.3333"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "server": "nodemon ./server/index.js --ignore ./src/**/*.js",
+    "dev": "concurrently -n \"[server,client]\" \"yarn server\" \"yarn start\""
   },
   "eslintConfig": {
     "extends": "react-app"
   },
+  "proxy": "http://localhost:9000/",
   "browserslist": [
     ">0.2%",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.10"
+  }
 }

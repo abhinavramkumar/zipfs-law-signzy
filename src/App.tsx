@@ -111,6 +111,7 @@ const App = (props: IProps) => {
                 <textarea
                   name="urls"
                   id="urls"
+                  value={url}
                   cols={30}
                   rows={3}
                   onChange={(e: React.FormEvent<HTMLTextAreaElement>) =>

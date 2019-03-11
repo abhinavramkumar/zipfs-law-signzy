@@ -58,6 +58,51 @@ async function processWords(url) {
   }
 }
 
+async function processAllWords(text) {
+  let words = text
+    .replace(/(\.|,|:|\n|-)/gi, ' ')
+    .replace(/(\'|\[|\])/gi, '')
+    .split(' ')
+    .filter(word => word.length !== 0)
+    .map(word => word.toLowerCase());
+
+  const data = words
+    .map(word => {
+      let count = 0;
+      words.forEach(item => {
+        if (item === word) {
+          count++;
+        }
+      });
+      return {
+        word,
+        count,
+      };
+    })
+    .sort((a, b) => (a.count > b.count ? -1 : a.count < b.count ? 1 : 0));
+
+  return _.uniqBy(data, 'word');
+}
+
+Router.post('/combined', async (req, res) => {
+  let result = '';
+  let test = [];
+  console.log(req.body);
+  req.body.map(async url => {
+    test.push(fetch(url));
+  });
+
+  result = await Promise.all(test);
+
+  let data = await processAllWords(
+    result
+      .join(',')
+      .trimLeft()
+      .trimRight(),
+  );
+  res.send(data);
+});
+
 Router.get('/', (req, res) => {
   res.sendStatus(200);
 });

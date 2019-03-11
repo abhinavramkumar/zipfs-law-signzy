@@ -1,9 +1,10 @@
 import * as React from 'react';
 import Graph from './Graph';
+import CombinedGraph from './CombinedGraph';
 
-const useFetch = async (urls: Array<string>) => {
+const useFetch = async (urls: Array<string>, path: string) => {
   console.log(JSON.stringify(urls));
-  const data = await fetch('http://localhost:3000/api', {
+  const data = await fetch(`http://localhost:3000/${path}`, {
     method: 'post',
     body: JSON.stringify(urls),
     headers: {
@@ -22,11 +23,21 @@ const App = (props: IProps) => {
   const [url, setUrl] = React.useState('');
   const [loading, setLoading] = React.useState(false);
   const [data, setData] = React.useState([]);
+  const [combinedData, setCombinedData] = React.useState([]);
+
+  async function handleCombinedData(urls: Array<string>) {
+    const res = await useFetch(urls, 'api/combined');
+    setCombinedData(res);
+  }
+
+  React.useEffect(() => {
+    handleCombinedData(url.replace(/(\n)/gi, '').split(','));
+  }, [data.length]);
 
   const generateCharts = async (urls: Array<string>) => {
     try {
       setLoading(true);
-      const res = await useFetch(urls);
+      const res = await useFetch(urls, 'api');
       let d = res.filter((x: any) => x !== null);
       if (d.length === 0) {
         throw new Error('Error!');
@@ -130,6 +141,10 @@ const App = (props: IProps) => {
             data.map((item, index) => (
               <Graph item={item} key={index} title={title[index]} />
             ))}
+
+          {!loading && combinedData.length > 0 && (
+            <CombinedGraph data={combinedData} />
+          )}
         </div>
       </div>
     </div>

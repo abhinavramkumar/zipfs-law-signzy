@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {LineChart, XAxis, Line, CartesianGrid, Tooltip} from 'recharts';
 
-interface IItem {
+export interface IItem {
   word: string;
   count: number;
 }
@@ -11,7 +11,7 @@ interface IProps {
   title: string;
 }
 
-function CustomTooltip({payload, label, active, data}: any) {
+export function CustomTooltip({payload, label, active, data}: any) {
   if (active) {
     let rank = data.findIndex((el: any) => el.word === payload[0].payload.word);
     return (

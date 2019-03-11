@@ -29,6 +29,13 @@ at PORT 9000 and client at PORT 3000.
     yarn install && yarn dev
 ```
 
+### Screenshots
+
+![image-1](https://github.com/abhinavramkumar/zipfs-law-signzy/blob/master/signzy-zipfs-law-1.png)
+![image-2](https://github.com/abhinavramkumar/zipfs-law-signzy/blob/master/signzy-zipfs-law-2.png)
+![image-3](https://github.com/abhinavramkumar/zipfs-law-signzy/blob/master/signzy-zipfs-law-3.png)
+![image-4](https://github.com/abhinavramkumar/zipfs-law-signzy/blob/master/signzy-zipfs-law-4.png)
+
 ### Created by
 
 Abhinav Ramkumar

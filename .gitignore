@@ -4,6 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
+/signzy-zipfs-law.zip
+
 
 # testing
 /coverage
